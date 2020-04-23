@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  #Route for the home page
   root 'pages#home'
+  #Route to display about page
   get 'about', to: 'pages#about'
+
+  #This sets the show route for article
+  resources :articles, only: [:show]
 end
