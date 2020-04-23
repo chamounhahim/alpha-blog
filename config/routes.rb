@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   #Route to display about page
   get 'about', to: 'pages#about'
 
-  #This sets the show route for article
-  resources :articles, only: [:show]
+  #This sets all the needed routes for articles
+  resources :articles, only: [:show, :index]
 end
