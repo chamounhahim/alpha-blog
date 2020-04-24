@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   get 'about', to: 'pages#about'
 
   #This sets all the needed routes for articles
-  resources :articles, only: [:show, :index, :new, :create, :edit, :update]
+  resources :articles
 end
