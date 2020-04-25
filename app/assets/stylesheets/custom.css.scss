@@ -1,0 +1,75 @@
+@import 'bootstrap/dist/css/bootstrap';
+
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
+    background-color: #3c5d7b !important ;
+}
+
+.nav-link {
+    color: #F7F7F4 !important;
+}
+
+#logo {
+    float: left;
+    font-size: 1.7em;
+    color: #F7F7F4;
+    letter-spacing: -2px;
+    font-weight: bold;
+}
+
+#home-container {
+    margin-top: 25px;
+}
+
+.jumbotron {
+    background-image: asset-url('jumbo-copy.jpg');
+    background-position: 50% 11% ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px;
+    color: #F7F7F4;
+}
+
+#jumbotron-title-home {
+    letter-spacing: -2px;
+    font-weight: bold;
+}
+
+.btn-success{
+    background-color:  #3c5d7b;
+    border-color:  #3c5d7b;
+}
+
+.btn-outline-success{
+    color:#9CA4A6  ;
+    border-color: #9CA4A6;
+}
+
+.btn-outline-success:hover, .btn-success:hover {
+    background-color:#9CA4A6  ;
+    border-color: #9CA4A6;
+    color: #F7F7F4;
+}
+
+html,
+body {
+  height: 100%;
+  background-color:#F7F7F4;
+}
+
+#page-content {
+  flex: 1 0 auto;
+}
+
+.sticky-footer {
+    flex-shrink: none;
+    background-color: #3c5d7b;
+    text-align: center;
+    color: #F7F7F4;
+  }
+  
+
+
