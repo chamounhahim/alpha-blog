@@ -1,27 +1,26 @@
-<h1>Liste des articles</h1>
+<h1 class="text-center mt-4">Tous les articles</h1>
 
-<table>
-    <thead>
-        <tr>
-            <th>Titre</th>
-            <th>Description</th>
-            <th colspan = "3">Actions</th>
-        </tr>
-    </thead>
-
-    <tbody>
-        <% @articles.each do |article| %>
-            <tr>
-                <td><%= article.title%></td>
-                <td><%= article.description%></td>
-                <td><%= link_to 'Voir', article_path(article.id)%></td>
-                <td><%= link_to 'Modifier', edit_article_path(article.id)%></td>
-                <td><%= link_to 'Supprimer', article_path(article.id), method: :delete, data: { confirm: "Are you sure?" }%></td>
-             </tr>
-        <% end %>
-    </tbody>
-</table>
-
-<p>
-     <%= link_to 'Créer un nouvel article', new_article_path %>
-</p>
+<% @articles.each do |article| %>
+<div class="row justify-content-md-center">
+    <div class="col-8 mt-4 mb-4">
+            <div class="card text-center shadow-sm bg-white rounded  ">
+                <div class="card-header font-italic">
+                    par Emile Chamoun
+                </div>
+            <div class="card-body">
+                <h5 class="card-title"><%= link_to article.title, article_path(article), class: "text-success" %></h5>
+                <p class="card-text"><%= article.description%></p>
+            </div>
+                <div>
+                    <%=link_to show_svg('trash_article.svg'), article_path(article), method: :delete, data: { confirm: "Êtes-vous sûr?" }, class: 'text-success float-right mr-1'%>
+                    <%=link_to show_svg('edit_article.svg'), edit_article_path(article), class: 'text-success float-right mr-1'%>
+                    <%=link_to show_svg('show_article.svg'), article_path(article), class: 'text-success float-right mr-1'%>
+                </div>
+            <div class="card-footer text-muted">
+                <small>Créé il y a  <%= time_ago_in_words(article.created_at)%></small>
+                <small>| Modifié il y a <%= time_ago_in_words(article.updated_at)%></small>
+            </div>
+        </div>
+    </div>
+</div>
+<% end %>

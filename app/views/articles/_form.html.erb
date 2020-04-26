@@ -1,5 +1,5 @@
 <% if @article.errors.any? %>
-    <h2>Les erreurs suivantes ont empêché l'article d'être publié : </h2>
+    <h2>The following errors prevented the article from being saved</h2>
     <ul>
         <% @article.errors.full_messages.each do |msg| %>
             <li><%= msg%></li>
@@ -9,7 +9,7 @@
 
 <%= form_with(model: @article, local: true) do |f|%>
     <p>
-        <%= f.label :title, "Titre"%> <br>
+        <%= f.label :title%> <br>
         <%= f.text_field :title%>
     </p>
     <p>
@@ -17,7 +17,6 @@
         <%= f.text_area :description%>
     </p>
     <p>
-    <%=f.submit "Publier"%>
+    <%=f.submit%>
     </p>
-
-<% end %>
+<% end %> 

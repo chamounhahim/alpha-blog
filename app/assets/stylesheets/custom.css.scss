@@ -8,6 +8,14 @@
     background-color: #3c5d7b !important ;
 }
 
+.navbar-toggler{
+    border-color:#F7F7F4 !important ;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(247,247,244)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
+}
+
 .nav-link {
     color: #F7F7F4 !important;
 }
@@ -38,20 +46,33 @@
     font-weight: bold;
 }
 
+.text-success{
+    color: #242830 !important;
+}
+
+.text-succes:hover{
+    color: #9CA4A6 ;
+}
+
 .btn-success{
     background-color:  #3c5d7b;
     border-color:  #3c5d7b;
 }
 
-.btn-outline-success{
-    color:#9CA4A6  ;
-    border-color: #9CA4A6;
+
+.btn-outline-success-dark{
+    color:#F7F7F4 ;
+    border-color: #F7F7F4;
 }
 
-.btn-outline-success:hover, .btn-success:hover {
-    background-color:#9CA4A6  ;
-    border-color: #9CA4A6;
-    color: #F7F7F4;
+.btn-outline-success-dark:hover, 
+.btn-success-dark:hover, 
+.btn-success-dark:active{
+    background-color:#9CA4A6 !important;
+    border-color: #9CA4A6 !important;
+    color: #F7F7F4 !important;
+    box-shadow:none !important; 
+
 }
 
 html,
@@ -62,6 +83,7 @@ body {
 
 #page-content {
   flex: 1 0 auto;
+  background-color: hsl(30, 16%, 96%) !important;
 }
 
 .sticky-footer {
@@ -70,6 +92,6 @@ body {
     text-align: center;
     color: #F7F7F4;
   }
-  
+
 
 

@@ -1,5 +1,5 @@
   <section class="container" id="home-container">
-    <div class="jumbotron">
+    <div class="jumbotron shadow-sm">
             <div>
                 <h1 class="display-4" id="jumbotron-title-home">ALPHA BLOG</h1>
                 <p class="lead">Ce blog est dédié à l'apprentissage du développement d'applications web grâce à Ruby on Rails et Bootstrap</p>
@@ -7,7 +7,7 @@
             <hr class="my-4">
             <div id="ss-titre-home">
                 <p id="jumbo-sstitre">Plusieurs articles pertinents sont offerts à la communauté de ce blogue.</p>
-                <a class="btn btn-success" href="#" role="button">Articles récents</a>
+                <%= link_to "Articles récents", articles_path, class:"btn btn-success", role: "button"%>
             </div>
     </div>
 </section>

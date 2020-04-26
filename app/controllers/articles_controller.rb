@@ -29,7 +29,6 @@ class ArticlesController < ApplicationController
     end    
 
     def update
-        @article = Article.new(article_params)
         if @article.update(params.require(:article).permit(:title, :description))
             flash[:notice] = "Article was updated successfully"
             redirect_to @article
