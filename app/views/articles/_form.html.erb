@@ -1,33 +1,27 @@
-<% if @article.errors.any? %>
-    <h2>The following errors prevented the article from being saved: </h2>
-    <ul>
-        <% @article.errors.full_messages.each do |msg| %>
-            <li><%= msg%></li>
-        <% end %>
-    </ul>
-<% end %>
+<div class="container">
+    <%=render 'shared/errors', obj: @article%>
 
-<div id="article-form" class="container p-4 shadow-sm rounded dark-text ">
-   
-    <%= form_with(model: @article, local: true) do |f|%>
-        <div class="form-group-row mb-4">       
-            <%= f.label :title, class: "col-2 col-form-label font-weight-bold light-text"%> 
-            <div class="col-12 ">
-                <%= f.text_field :title, class: "form-control shadow-sm"%>
+    <div id="article-form" class="container p-4 shadow-sm rounded dark-text ">
+    
+        <%= form_with(model: @article, local: true) do |f|%>
+            <div class="form-group-row mb-4">       
+                <%= f.label :title, class: "col-2 col-form-label font-weight-bold light-text"%> 
+                <div class="col-12 ">
+                    <%= f.text_field :title, class: "form-control shadow-sm"%>
+                </div>
             </div>
-        </div>
 
-        <div class="form-group-row mb-4">
-            <%= f.label :description, class: "col-2 col-form-label font-weight-bold light-text"%> 
-            <div class="col-12">
-                <%= f.text_area :description, rows:10, class: "form-control shadow-sm"%>
+            <div class="form-group-row mb-4">
+                <%= f.label :description, class: "col-2 col-form-label font-weight-bold light-text"%> 
+                <div class="col-12">
+                    <%= f.text_area :description, rows:10, class: "form-control shadow-sm"%>
+                </div>
             </div>
-        </div>
-   
-        <div class="row justify-content-center">
-            <%=f.submit class: "btn btn-outline-light btn-lg"%>
-        </div>
-
-    <% end %> 
-
+    
+            <div class="row justify-content-center">
+                <%=f.submit class: "btn btn-outline-light btn-lg"%>
+            </div>
+            
+        <% end %> 
+    </div>
 </div>

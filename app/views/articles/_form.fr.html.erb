@@ -1,5 +1,5 @@
 <div class="container">
-    <%=render 'shared/errors'%>
+    <%=render 'shared/errors', obj: @article%>
     <div id="article-form" class="p-4 shadow-sm rounded dark-text ">
     
         <%= form_with(model: @article, local: true) do |f|%>
