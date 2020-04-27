@@ -19,6 +19,8 @@ module AlphaBlog
     #Configuration to enable custom fonts
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
 
+    #Set timezone to EST
+    config.time_zone = "Eastern Time (US & Canada)"
 
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales','**', '*.{rb,yml}')]
     config.i18n.default_locale = :fr
