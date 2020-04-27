@@ -7,7 +7,58 @@
             <hr class="my-4">
             <div id="ss-titre-home">
                 <p id="jumbo-sstitre">Plusieurs articles pertinents sont offerts à la communauté de ce blogue.</p>
-                <%= link_to "Articles récents", articles_path, class:"btn btn-success", role: "button"%>
+                <%= link_to "Articles récents", articles_path, class:"btn btn-success btn-lg", role: "button"%>
             </div>
     </div>
 </section>
+
+<%if @articles.count >= 3%>
+<section class="container" id="home-articles">
+    <h3 class="text-center mb-4">Articles les plus récents</h3>
+    <% @latest_articles = @articles.last(3)%>
+
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="inactive"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1" class="inactive"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2" class="inactive"></li>
+            </ol>
+
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="card shadow-sm bg-white rounded mb-5">
+                        <div class="card-header text-center">
+                             <%= link_to @latest_articles[2].title, article_path(@latest_articles[2]), class: "card-title font-weight-bold dark-text article-title" %>
+                        </div>
+
+                        <div class="card-body dark-text">
+                            <p class="card-text text-justify"><%= truncate(@latest_articles[2].description, :length =>150)%></p>
+                        </div>
+                    </div>
+                </div>    
+                <div class="carousel-item">
+                    <div class="card shadow-sm bg-white rounded mb-5">
+                        <div class="card-header text-center">
+                            <%= link_to @latest_articles[1].title, article_path(@latest_articles[1]), class: "card-title font-weight-bold dark-text article-title" %>
+                        </div>
+
+                        <div class="card-body dark-text">
+                            <p class="card-text text-justify"><%= truncate(@latest_articles[1].description, :length =>150)%></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="card shadow-sm bg-white rounded mb-5">
+                        <div class="card-header text-center">
+                            <%= link_to @latest_articles[0].title, article_path(@latest_articles[0]), class: "card-title font-weight-bold dark-text article-title" %>
+                        </div>
+
+                        <div class="card-body dark-text">
+                            <p class="card-text text-justify"><%= truncate(@latest_articles[0].description, :length =>150)%></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+ </section>
+ <% end %>

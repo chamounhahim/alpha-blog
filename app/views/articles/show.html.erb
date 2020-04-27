@@ -1,8 +1,29 @@
-<h1>Showing article details</h1>
+<h2 class="container text-center mt-4"> <%= @article.title %></h2>
 
-<p><strong>Title: </strong><%= @article.title %></p>
-<p><strong>Description: </strong><%= @article.description %></p>
+<div class="row justify-content-center">
+    <div class="col-8 mt-4 mb-4">
+            <div class="card shadow-sm bg-white rounded">
+                <div class="card-header text-center font-italic dark-text">
+                    par Emile Chamoun
+                </div>
 
-<%= link_to 'Edit', edit_article_path(@article)%>
-<%= link_to 'Delete', article_path(@article), method: :delete, data: { confirm: "Êtes-vous sûr?" }%>
-<%= link_to 'Return to articles listing', articles_path%>
+                <div class="card-body dark-text">
+                    <div class="card-text text-justify"><%= simple_format(@article.description) %></div>
+                </div>
+
+                <div class="card-footer text-muted ">
+                <div class="row">
+                    <div class="col-8 ">
+                        <small>Créé il y a  <%= time_ago_in_words(@article.created_at)%></small>
+                        <small>| Modifié il y a <%= time_ago_in_words(@article.updated_at)%></small>
+                    </div>
+                    <div class="col-4">
+                        <%=link_to show_svg('trash_article.svg'), article_path(@article), method: :delete, data: { confirm: "Êtes-vous sûr?" }, class: 'dark-text icon float-right'%>
+                        <%=link_to show_svg('edit_article.svg'), edit_article_path(@article), class: 'dark-text icon float-right mr-2'%>
+                     </div>
+                </div>     
+                </div>
+            </div>
+    </div>
+</div>
+

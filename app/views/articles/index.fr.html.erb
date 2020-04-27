@@ -1,11 +1,11 @@
-<h1 class="text-center mt-4">Listing of all articles</h1>
+<h1 class="text-center mt-4">Tous les articles</h1>
 
-<% @articles.each do |article| %>
+<% @articles.reverse.each do |article| %>
 <div class="row justify-content-center">
     <div class="col-8 mt-4 mb-4">
             <div class="card shadow-sm bg-white rounded">
                 <div class="card-header text-center font-italic dark-text">
-                    by Emile Chamoun
+                    par Emile Chamoun
                 </div>
 
                 <div class="card-body dark-text">
@@ -13,11 +13,11 @@
                     <p class="card-text text-justify"><%= truncate(article.description, :length =>300)%></p>
                 </div>
 
-                <div class="card-footer text-muted">
+                <div class="card-footer text-muted ">
                 <div class="row">
                     <div class="col-8 ">
-                        <small>Created   <%= time_ago_in_words(article.created_at)%></small>
-                        <small>| Modified <%= time_ago_in_words(article.updated_at)%></small>
+                        <small>Créé il y a  <%= time_ago_in_words(article.created_at)%></small>
+                        <small>| Modifié il y a <%= time_ago_in_words(article.updated_at)%></small>
                     </div>
                     <div class="col-4">
                         <%=link_to show_svg('trash_article.svg'), article_path(article), method: :delete, data: { confirm: "Êtes-vous sûr?" }, class: 'dark-text icon float-right'%>
