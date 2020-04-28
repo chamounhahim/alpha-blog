@@ -4,7 +4,7 @@
     <div class="col-8 mt-4 mb-4">
             <div class="card shadow-sm bg-white rounded">
                 <div class="card-header text-center font-italic dark-text">
-                    par <%= @article.user.username %>
+                    par <%= link_to @article.user.username, user_path(@article.user),class: "dark-text article-title" %>
                 </div>
 
                 <div class="card-body dark-text">

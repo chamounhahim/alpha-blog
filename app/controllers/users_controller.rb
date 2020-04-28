@@ -9,6 +9,10 @@ class UsersController < ApplicationController
 
     end
 
+    def show
+        @articles = @user.articles
+    end
+
     def update
         if @user.update(user_params)
             flash[:notice] = "Votre profil a été mis à jour"
