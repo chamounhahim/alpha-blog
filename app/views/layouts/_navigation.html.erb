@@ -13,6 +13,10 @@
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <%= link_to "Voir tous les articles", articles_path, class: "dropdown-item dark-text"%>
                 <%= link_to "Créer un nouvel article", new_article_path, class: "dropdown-item dark-text"%>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <%= link_to "Communauté", users_path, class: " nav-link light-text"%>
             </li>
           </ul>
               <%= link_to "S'inscrire", signup_path, class: "btn btn-outline-success-dark my-2 my-sm-0 mr-2"%>

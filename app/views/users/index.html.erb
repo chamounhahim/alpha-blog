@@ -1,0 +1,29 @@
+<h1 class="text-center mt-4">Utilisateurs d'Alpha Blog</h1>
+<div class="container">
+<div class="row ">
+    <% @users.each do |user|%> 
+
+        <div class="d-inline col-sm-12 col-md-8 col-lg-4 mt-4 mb-4">
+            <div class="card shadow-sm bg-white rounded">
+                <div class="card-header text-center dark-text font-weight-bold">
+                    <%= link_to user.username, user_path(user),class: "dark-text article-title" %>
+                </div>
+
+                <div class="card-body dark-text">
+                    <h5 class="card-title font-weight-bold">
+                        <%= link_to gravatar_for(user, size: 125), user_path(user) %>
+                    </h5>
+                    <p class="card-text text-center"><%= pluralize(user.articles.count, 'article')%></p>
+                </div>
+
+                <div class="card-footer text-muted ">
+                    <div class="">
+                        <%=link_to show_svg('show_user.svg'), user_path(user), {:title => "Voir le profil", class: 'dark-text icon float-right'} %>
+                        <%=link_to show_svg('edit_article.svg'), edit_user_path(user), {:title => "Modifier le profil", class: 'dark-text icon float-right mr-1'}%>
+                     </div>   
+                </div>
+            </div>
+        </div>
+        <% end %>
+ </div>
+ </div>

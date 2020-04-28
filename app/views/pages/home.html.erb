@@ -1,14 +1,16 @@
   <section class="container" id="home-container">
-    <div class="jumbotron shadow-sm">
-            <div>
-                <h1 class="display-4" id="jumbotron-title-home">ALPHA BLOG</h1>
-                <p class="lead">Ce blog est dédié à l'apprentissage du développement d'applications web grâce à Ruby on Rails et Bootstrap</p>
-            </div>
-            <hr class="my-4">
-            <div id="ss-titre-home">
-                <p id="jumbo-sstitre">Plusieurs articles pertinents sont offerts à la communauté de ce blogue.</p>
-                <%= link_to "Articles récents", articles_path, class:"btn btn-success btn-lg", role: "button"%>
-            </div>
+    <div class="row">
+        <div class="jumbotron shadow-sm col-12">
+                <div>
+                    <h1 class="display-4" id="jumbotron-title-home">ALPHA BLOG</h1>
+                    <p class="lead">Ce blog est dédié à l'apprentissage du développement d'applications web grâce à Ruby on Rails et Bootstrap</p>
+                </div>
+                <hr class="my-4">
+                <div id="ss-titre-home">
+                    <p id="jumbo-sstitre">Plusieurs articles pertinents sont offerts à la communauté de ce blogue.</p>
+                    <%= link_to "Articles récents", articles_path, class:"btn btn-success btn-lg", role: "button"%>
+                </div>
+        </div>
     </div>
 </section>
 
