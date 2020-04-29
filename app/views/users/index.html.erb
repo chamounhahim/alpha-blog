@@ -19,7 +19,9 @@
                 <div class="card-footer text-muted ">
                     <div class="">
                         <%=link_to show_svg('show_user.svg'), user_path(user), {:title => "Voir le profil", class: 'dark-text icon float-right'} %>
-                        <%=link_to show_svg('edit_article.svg'), edit_user_path(user), {:title => "Modifier le profil", class: 'dark-text icon float-right mr-1'}%>
+                        <% if logged_in? && user == current_user %>
+                            <%=link_to show_svg('edit_article.svg'), edit_user_path(user), {:title => "Modifier le profil", class: 'dark-text icon float-right mr-1'}%>
+                        <% end %>
                      </div>   
                 </div>
             </div>
