@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :set_user, only: [:show, :edit, :update, :destroy]
+    before_action :set_user, only: [:show, :edit, :update]
 
     def new
         @user = User.new
@@ -13,7 +13,7 @@ class UsersController < ApplicationController
         @users = User.paginate(page: params[:page], per_page: 6)
     end
     def show
-        @articles = @user.articles.paginate(page: params[:page], per_page: 3)
+        @articles = @user.articles.paginate(page: params[:page], per_page: 3).order("created_at DESC")
     end
 
     def update
@@ -28,6 +28,7 @@ class UsersController < ApplicationController
     def create
         @user = User.new(user_params)
         if @user.save
+            session[:user_id] = @user.id
             flash[:notice] = "Bienvenue sur Alpha Blog #{@user.username} , vous êtes maintenant inscrit."
             redirect_to articles_path
         else

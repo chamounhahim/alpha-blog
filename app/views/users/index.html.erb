@@ -3,7 +3,7 @@
 <div class="row justify-content-center">
     <% @users.each do |user|%> 
 
-        <div class="d-inline col-sm-12 col-md-8 col-lg-4 mt-4 mb-4">
+        <div class="d-inline col-sm-12 col-md-6 col-lg-4 mt-4 mb-4">
             <div class="card shadow-sm bg-white rounded">
                 <div class="card-header text-center dark-text font-weight-bold">
                     <%= link_to user.username, user_path(user),class: "dark-text article-title" %>

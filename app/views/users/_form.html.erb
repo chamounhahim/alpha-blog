@@ -27,7 +27,7 @@
             <div class="row justify-content-center">
             
                 <%=f.submit(@user.new_record? ? "S\'inscrire" : "Mettre à jour", class: "btn btn-outline-light btn-lg")%>
-                <%= link_to "Annuler", user_path(@user), class: "btn btn-outline-light btn-lg ml-4"%>       
+                <%= link_to "Annuler", root_path, class: "btn btn-outline-light btn-lg ml-4"%>       
             </div>
         <% end %>
     </div>

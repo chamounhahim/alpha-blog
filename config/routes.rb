@@ -13,6 +13,11 @@ Rails.application.routes.draw do
   # This sets all the needed routes for users, except for new (it goes to signup)
   resources :users, except: [:new]
 
+  #Route for login page
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
+
 
   
 end
