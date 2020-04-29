@@ -15,6 +15,13 @@ class ApplicationController < ActionController::Base
     !!current_user
   end
 
+  def require_user
+    if !logged_in?
+      flash[:alert] = "Vous devez être connecté pour effectuer cette action"
+      redirect_to login_path
+    end
+  end
+
 
 private
 def set_locale

@@ -1,50 +1,49 @@
 <nav class="navbar navbar-expand-sm navbar-light bg-light">
-        <%= link_to "ALPHA BLOG", root_path, class: "navbar-brand", id: "logo"%>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Articles
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <%= link_to "Voir tous les articles", articles_path, class: "dropdown-item dark-text"%>
-                <% if logged_in? %>
-                  <%= link_to "Créer un nouvel article", new_article_path, class: "dropdown-item dark-text"%>
-                <% end %>
-              </div>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Communauté", users_path, class: " nav-link light-text"%>
-            </li>
-          </ul>
-          
-          <ul class="navbar-nav ml-auto mr-2">
+  <%= link_to "ALPHA BLOG", root_path, class: "navbar-brand", id: "logo"%>
+        
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Articles
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to "Voir tous les articles", articles_path, class: "dropdown-item dark-text"%>
             <% if logged_in? %>
-            <li class="nav-item dropdown">
-               <a class="nav-link dropdown-toggle mr-2" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <%= current_user.username%>
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <%= link_to "Profil", user_path(current_user), class: "dropdown-item dark-text"%>
-                <%= link_to "Modifier le profil", edit_user_path(current_user), class: "dropdown-item dark-text"%>
-              </div>
-              </li>
-              <li class="nav-item">
-                <%= link_to "Se déconnecter", logout_path, class: "btn btn-outline-success-dark my-2 my-sm-0 mr-2", method: :delete%>
-              </li>
-            <% else %>
-              <li class="nav-item">
-                <%= link_to "S'inscrire", signup_path, class: "btn btn-outline-success-dark my-2 my-sm-0 mr-2"%>
-            </li>
-              <li class="nav-item">
-                <%= link_to "Se connecter", login_path, class: "btn btn-outline-success-dark my-2 my-sm-0 mr-2"%>
-              </li>
+              <%= link_to "Créer un nouvel article", new_article_path, class: "dropdown-item dark-text"%>
             <% end %>
-          </ul>
         </div>
-      </nav>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Communauté", users_path, class: " nav-link light-text"%>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto mr-2">
+      <% if logged_in? %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle mr-2" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= current_user.username%>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to "Profil", user_path(current_user), class: "dropdown-item dark-text"%>
+            <%= link_to "Modifier le profil", edit_user_path(current_user), class: "dropdown-item dark-text"%>
+          </div>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Se déconnecter", logout_path, class: "btn btn-outline-success-dark my-2 my-sm-0 mr-2", method: :delete%>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to "S'inscrire", signup_path, class: "btn btn-outline-success-dark my-2 my-sm-0 mr-2"%>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Se connecter", login_path, class: "btn btn-outline-success-dark my-2 my-sm-0 mr-2"%>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
