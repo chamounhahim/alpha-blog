@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-    before_action :set_user, only: [:show, :edit, :update]
-    before_action :require_user, only: [:edit, :update]
-    before_action :require_same_user, only: [:edit, :update]
+    before_action :set_user, only: [:show, :edit, :update, :destroy]
+    before_action :require_same_user, only: [:edit, :update, :destroy]
+    before_action :require_admin, only: [:destroy]
 
     def new
         @user = User.new
@@ -16,6 +16,12 @@ class UsersController < ApplicationController
     end
     def show
         @articles = @user.articles.paginate(page: params[:page], per_page: 3).order("created_at DESC")
+    end
+
+    def destroy
+        @user.destroy
+        flash[:danger] = "L'utilisateur ainsi que tous ses articles ont été détruits"
+        redirect_to users_path
     end
 
     def update
@@ -48,9 +54,16 @@ class UsersController < ApplicationController
     end
 
     def require_same_user
-        if current_user != @user
+        if current_user != @user && !current_user.admin?
             flash[:alert] = "Vous ne pouvez modifier ou supprimer que votre profil"
             redirect_to user_path(@user.id)
         end
+    end
+
+    def require_admin
+        if logged_in? and !current_user.admin?
+            flash[danger] = "Cette action n'est permise qu'aux administrateurs d'Alpha Blog"
+            redirect_to root_path
+        end     
     end
 end

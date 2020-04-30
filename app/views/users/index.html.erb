@@ -19,8 +19,14 @@
                 <div class="card-footer text-muted ">
                     <div class="">
                         <%=link_to show_svg('show_user.svg'), user_path(user), {:title => "Voir le profil", class: 'dark-text icon float-right'} %>
-                        <% if logged_in? && user == current_user %>
+                        <% if logged_in? && (user == current_user || current_user.admin?) %>
                             <%=link_to show_svg('edit_article.svg'), edit_user_path(user), {:title => "Modifier le profil", class: 'dark-text icon float-right mr-1'}%>
+                        <% end %>
+                        <% if logged_in? && current_user.admin?%>
+                            <%=link_to show_svg('trash_article.svg'), user_path(user), method: :delete, 
+                                        data: { confirm: "Êtes-vous sûr de vouloir supprimer l'utilisateur ainsi que tous ses articles?"}, 
+                                        title: "Supprimer l'utilisateur", 
+                                        class: 'dark-text icon float-right mr-1'%>           
                         <% end %>
                      </div>   
                 </div>

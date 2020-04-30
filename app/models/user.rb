@@ -9,6 +9,6 @@ class User < ApplicationRecord
                          format: { with: VALID_EMAIL_REGEX } 
     before_save { self.email = email.downcase}
 
-    has_many :articles
+    has_many :articles, dependent: :destroy
     has_secure_password
 end

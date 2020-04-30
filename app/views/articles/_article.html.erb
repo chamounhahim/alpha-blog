@@ -21,7 +21,7 @@
                         <small>| Modifié il y a <%= time_ago_in_words(article.updated_at)%></small>
                     </div>
                     <!-- Makes the edit and delete actions only available if the user is logged in and if he's the author -->
-                    <% if logged_in? && article.user == current_user %>
+                    <% if logged_in? && (article.user == current_user || current_user.admin?)%>
                         <div class="col-4">
                             <%=link_to show_svg('trash_article.svg'), article_path(article), method: :delete, data: { confirm: "Êtes-vous sûr?" }, class: 'dark-text icon float-right'%>
                             <%=link_to show_svg('edit_article.svg'), edit_article_path(article), class: 'dark-text icon float-right mr-2'%>
