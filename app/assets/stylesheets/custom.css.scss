@@ -1,6 +1,12 @@
 @import 'bootstrap/dist/css/bootstrap';
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;600;800&display=swap');
 
+html, body {
+  overflow-x: hidden;
+}
+body {
+  position: relative
+}
 
 *{
     font-family: 'Roboto Slab', serif; 
