@@ -1,0 +1,21 @@
+<h1 class="text-center mt-4">Créer une nouvelle catégorie</h1>
+
+<div class="container">
+    <%=render 'shared/errors', obj: @category%>
+    <div id="article-form" class="p-4 shadow-sm rounded dark-text mb-4 ">
+    
+        <%= form_with(model: @category, local: true) do |f|%>
+            <div class="form-group-row mb-4">       
+                <%= f.label :name,  'Nom de la catégorie', class: "col-sm col-form-label font-weight-bold light-text"%> 
+                <div class="col-sm ">
+                    <%= f.text_field :name, placeholder: 'Nom de la catégorie', class: "form-control shadow-sm" %>
+                </div>
+            </div>    
+            <div class="row justify-content-center">
+            
+                <%=f.submit class: "btn btn-outline-light btn-lg"%>
+                <%= link_to "Annuler", root_path, class: "btn btn-outline-light btn-lg ml-4"%>       
+            </div>
+        <% end %>
+    </div>
+</div>
