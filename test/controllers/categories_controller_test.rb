@@ -9,7 +9,7 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
     end
     def sign_in_as(user, password)
         post login_path, params: { session: { email: user.email, password: password } }
-      end
+    end
 
     test "should get categories index" do 
         get categories_path

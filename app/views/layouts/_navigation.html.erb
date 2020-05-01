@@ -12,9 +12,25 @@
           Articles
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to "Voir tous les articles", articles_path, class: "dropdown-item dark-text"%>
+            <%= link_to "Tous les articles", articles_path, class: "dropdown-item dark-text"%>
             <% if logged_in? %>
               <%= link_to "Créer un nouvel article", new_article_path, class: "dropdown-item dark-text"%>
+            <% end %>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Catégories
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to "Toutes les catégories", categories_path, class: "dropdown-item dark-text"%>
+            <hr class= "my-1">
+            <%Category.all.each do |category|%>
+              <%= link_to category.name, category_path(category),class: "dropdown-item dark-text" %>
+            <% end %>
+            <% if logged_in? && current_user.admin? %>
+              <hr class= "my-1">
+              <%= link_to "Nouvelle catégorie", new_category_path, class: "dropdown-item dark-text"%>
             <% end %>
         </div>
       </li>
