@@ -59,11 +59,4 @@ class UsersController < ApplicationController
             redirect_to user_path(@user.id)
         end
     end
-
-    def require_admin
-        if logged_in? and !current_user.admin?
-            flash[danger] = "Cette action n'est permise qu'aux administrateurs d'Alpha Blog"
-            redirect_to root_path
-        end     
-    end
 end

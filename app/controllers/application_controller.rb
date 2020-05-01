@@ -22,6 +22,17 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def require_admin
+    if !logged_in?
+      flash[:danger] = "Cette action n'est permise qu'aux administrateurs d'Alpha Blog"
+      redirect_to login_path
+    elsif logged_in? and !current_user.admin?
+        flash[:danger] = "Cette action n'est permise qu'aux administrateurs d'Alpha Blog"
+        redirect_to root_path
+    end     
+end
+
+
 
 private
 def set_locale
