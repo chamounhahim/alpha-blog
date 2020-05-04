@@ -1,13 +1,1 @@
-<% @categories.each do |category| %>
-<div class="row justify-content-center">
-    <div class="col-8 mt-2 mb-2">
-            <div class="card shadow-sm bg-white rounded">
-                <div class="card-header text-center font-weigth-bold dark-text">
-                    <div class="row justify-content-center">
-                        <%= link_to category.name, category_path(category), class: "dark-text font-weight-bold article-title mr-2" %>
-                    </div>
-                </div>
-            </div>
-    </div>
-</div>
-<% end %>
+<span class="badge mr-1"><%= link_to category.name, category_path(category), class: "nav-link light-text p-0"%> &nbsp; </span>

@@ -11,7 +11,12 @@
                 </div>
 
                 <div class="card-body dark-text">
-                    <div class="card-text text-justify"><%= simple_format(@article.description) %></div>
+                    <div class="card-text text-justify">
+                        <%= simple_format(@article.description) %>
+                        <% if @article.categories.any?%>
+                            <p>Catégorie(s) : <%= render @article.categories%></p>
+                        <% end %>
+                    </div>
                 </div>
 
                 <div class="card-footer text-muted ">

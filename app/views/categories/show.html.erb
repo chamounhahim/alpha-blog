@@ -1,1 +1,7 @@
-<h2 class="text-center mt-4 mb-2"><%= @category.name %></h2>
+<h1 class="text-center mt-4">Catégorie : <%= @category.name %></h1>
+
+<%= render 'articles/article', obj: @category_articles%>
+
+<div class="container d-flex justify-content-center flickr_pagination mb-4">
+<%= will_paginate @category_articles, :previous_label => 'Précédent', :next_label => 'Suivant' %>
+</div>

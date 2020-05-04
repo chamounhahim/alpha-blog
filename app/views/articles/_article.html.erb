@@ -1,4 +1,4 @@
-<% @articles.each do |article| %>
+<% obj.each do |article| %>
 <div class="row justify-content-center">
     <div class="col-8 mt-4 mb-4">
             <div class="card shadow-sm bg-white rounded">
@@ -12,6 +12,9 @@
                 <div class="card-body dark-text">
                     <h5 class="card-title font-weight-bold"><%= link_to article.title, article_path(article), class: "dark-text article-title" %></h5>
                     <p class="card-text text-justify"><%= truncate(article.description, :length =>300)%></p>
+                    <% if article.categories.any?%>
+                            <p>Catégorie(s) : <%= render article.categories%></p>
+                    <% end %>                
                 </div>
 
                 <div class="card-footer text-muted ">

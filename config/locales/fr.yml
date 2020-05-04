@@ -217,3 +217,7 @@ fr:
       long: "%A %d %B %Y %Hh%M"
       short: "%d %b %Hh%M"
     pm: pm
+  article: 
+    zero: '0 article'
+    one: '1 article'
+    other: "%{count} articles"

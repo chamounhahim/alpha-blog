@@ -16,6 +16,15 @@
                     <%= f.text_area :description, rows:10, placeholder: 'Description de l\'article', class: "form-control shadow-sm"%> 
                 </div>
             </div>
+
+              <div class="form-group-row mb-4">
+                <div class="col-12">
+                    <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb|%> 
+                        <% cb.label(class: "checkbox-inline input_checkbox light-text mr-2") {cb.check_box(class: "checkbox mr-2") + cb.text}%>
+                    <% end %>
+                </div>
+            </div>
+
     
             <div class="row justify-content-center">
                 <%=f.submit class: "btn btn-outline-light btn-lg"%>
