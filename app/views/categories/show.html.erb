@@ -1,4 +1,15 @@
-<h1 class="text-center mt-4">Catégorie : <%= @category.name %></h1>
+<h1 class="text-center mt-4">Catégorie : <%= @category.name %>
+    <% if logged_in? && current_user.admin? %>
+    
+            <%=link_to show_svg('edit_article.svg'), 
+                            edit_category_path(@category), 
+                            class: 'dark-text icon float-right mr-2'%>
+
+<% end %>
+</h1> 
+
+
+
 
 <%= render 'articles/article', obj: @category_articles%>
 
