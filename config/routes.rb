@@ -8,7 +8,11 @@ Rails.application.routes.draw do
   get 'signup', to: 'users#new'
 
   #This sets all the needed routes for articles
-  resources :articles
+  resources :articles  do 
+    #Routes for comments
+    resources :comments
+  end 
+
 
   # This sets all the needed routes for users, except for new (it goes to signup)
   resources :users, except: [:new]
@@ -20,5 +24,7 @@ Rails.application.routes.draw do
 
   #Routes for categories
   resources :categories, except: [:destroy]
+
+  
   
 end

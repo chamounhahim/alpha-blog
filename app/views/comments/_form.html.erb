@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+<%=render 'shared/errors', obj: @comment%>
+    <div class="col-8 mt-4 mb-4">
+            <div class="card shadow-sm bg-white rounded">
+                <div class="card-header  dark-text ">
+                    <div class="row justify-content-center">
+                        <p class="dark-text article-title mr-2"> Commentaires </p>
+                    </div>
+                </div>
+
+                <div class="card-body dark-text">
+                    <div class="card-text text-justify">
+                        <% if @comments.any?%>
+                            <% @comments.each do |comment|%>
+                                <% user =  User.find(comment.user_id)%>
+                                <div class="row my-2 mx-2">
+                                    <%= link_to gravatar_for(user, size: 25), user_path(user), class: "mr-2"%>
+                                    <%= link_to user.username, user_path(user.id), class: "dark-text article-title mr-2" %>
+                                </div>
+                                
+                                <hr class="col-3 float-left">
+                                    
+                                <div class = "row mb-3 mx-2">
+                                    <div class="comments rounded px-3">
+                                        <%= comment.body%> 
+                                        <% if logged_in? && (current_user == comment.user || current_user.admin?)  %>
+                                            <%=link_to show_svg('trash_article.svg'), article_comment_path(@article, comment), method: :delete, 
+                                                        data: { confirm: "Êtes-vous sûr de vouloir supprimer ce commentaire?"}, 
+                                                        title: "Supprimer le commentaire", 
+                                                        class: 'dark-text icon float-right mr-1'%>           
+                                        <% end %> 
+                                    </div>
+                                </div>   
+                            <% end %>
+                        <% end %>
+                    </div>
+                </div>
+
+                <hr>
+                
+                <%= form_with model: [@article, @comment] do |f|%>
+                    <div class="form-group-row mb-4">       
+                        <div class="col-12 ">
+                            <%= f.text_field :body, rows:5, placeholder: 'Votre commentaire', class: "form-control shadow-sm col-12"%>
+                        </div>
+                    </div>
+                <% end %>
+        
+                
+            </div>
+    </div>
+</div>
+

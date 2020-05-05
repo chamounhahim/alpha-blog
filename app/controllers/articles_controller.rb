@@ -5,6 +5,9 @@ class ArticlesController < ApplicationController
    before_action :require_same_user, only: [:edit, :update, :destroy]
 
     def show   
+        @comment = Comment.new
+        @comment.article_id = @article.id
+        @comments = @article.comments
     end
 
     def index
